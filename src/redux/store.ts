@@ -1,10 +1,8 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import {cardsApi} from '../api/cardsApi';
-import {searchSlice} from './search-slice';
 
 export const rootReducer = combineReducers({
     [cardsApi.reducerPath]: cardsApi.reducer,
-    search: searchSlice.reducer,
 });
 
 export const store = configureStore({
