@@ -1,0 +1,62 @@
+.wrapper {
+    height: calc(100vh - 100px);
+}
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 150px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 150px;
+}
+
+.customButton {
+    width: 80px;
+}
+
+.title {
+    margin: 15px 0 0;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.description {
+    display: flex;
+    gap: 30px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info_item {
+    margin: 0;
+}
+
+.light {
+    color: white;
+}
+
+.favorite {
+    color: #e55858;
+    stroke: #e55858;
+}
+
+.favoriteButton {
+    position: absolute;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.imgBlock {
+    position: relative;
+}

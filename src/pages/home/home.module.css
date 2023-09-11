@@ -1,0 +1,6 @@
+.card_container {
+    padding: 5px;
+}
+.container {
+    height: calc(100vh - 100px);
+}

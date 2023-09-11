@@ -1,7 +1,6 @@
 const AppRoute = {
-    Main: '/anime-list',
-    Search: 'search',
-    DetailedItem: 'detailed-item/:id',
+    Search: 'search/',
+    AboutItem: 'about-item/:id',
     LogIn: 'login',
     SignUp: 'signup',
     Favorites: 'favorites',

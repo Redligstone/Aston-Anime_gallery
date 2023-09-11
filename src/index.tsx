@@ -4,7 +4,6 @@ import {Provider} from 'react-redux';
 
 import './index.css';
 
-import 'react-toastify/dist/ReactToastify.css';
 import {store} from './redux/store';
 import {App} from './App';
 
