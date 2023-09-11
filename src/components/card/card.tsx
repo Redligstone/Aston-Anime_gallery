@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router';
-import {AnimeWithId} from '../../types/animeData';
+import {AnimeWithId} from '../../types/anime-data';
 import s from './card.module.css';
 
 type CardProps = {

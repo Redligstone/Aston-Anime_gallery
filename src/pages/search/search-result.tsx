@@ -1,5 +1,5 @@
-import {useLocation} from 'react-router';
-import {CardList} from '../../components/card-list/Card-List';
+import {useParams} from 'react-router';
+import {CardList} from '../../components/card-list/card-list';
 import {Loader} from '../../components/loader/loader';
 import {SearchBar} from '../../components/search-bar/search-bar';
 import {useGetCardsQuery} from '../../api/cardsApi';
@@ -7,17 +7,17 @@ import {useGetCardsQuery} from '../../api/cardsApi';
 import s from './search-result.module.css';
 
 function SearchResult() {
-    const location = useLocation();
-    const userQuery = new URLSearchParams(location.search).get('query');
-    console.log(userQuery);
-    const {data} = useGetCardsQuery({search: userQuery!, size: '10'});
+    const {query} = useParams();
+    const {data} = useGetCardsQuery({search: query, size: '10'});
+
+    const cardListRender = () => <>{data ? <CardList cards={data} /> : <Loader />}</>;
 
     const renderContent = () => {
-        if (!userQuery || !userQuery.length) {
+        if (!query || !query.length) {
             return (
                 <>
                     <h4 className={s.title}>Explore the collection:</h4>
-                    {data ? <CardList cards={data} /> : <Loader />}
+                    {cardListRender()}
                 </>
             );
         }
@@ -29,7 +29,7 @@ function SearchResult() {
         return (
             <>
                 <h4 className={s.title}>Search Results:</h4>
-                {data ? <CardList cards={data} /> : <Loader />}
+                {cardListRender()}
             </>
         );
     };

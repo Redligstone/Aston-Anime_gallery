@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import {AnimeData, AnimeWithId} from '../types/animeData';
+import {AnimeData, AnimeWithId} from '../types/anime-data';
 import {Meta} from '../types/meta';
 
 import {renameIdsInData} from '../services/renameIdsInData';

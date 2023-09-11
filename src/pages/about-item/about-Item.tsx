@@ -1,10 +1,7 @@
 import {useNavigate, useParams} from 'react-router-dom';
-import {useEffect, useState} from 'react';
 import {useDataFetching} from '../../hooks/useDataFetching';
 import {Loader} from '../../components/loader/loader';
 import {Button} from '../../components/button/button';
-
-import {AnimeData} from '../../types/animeData';
 
 import s from './about-item.module.css';
 
@@ -13,15 +10,7 @@ function AboutItem() {
 
     const params = useParams();
 
-    const [animeData, setAnimeData] = useState<AnimeData | null>(null);
-
     const anime = useDataFetching(`https://anime-db.p.rapidapi.com/anime/by-id/${params.id}`);
-
-    useEffect(() => {
-        if (anime) {
-            setAnimeData(anime);
-        }
-    }, [anime, animeData?._id]);
 
     const backButtonHandler = () => {
         navigate('/');

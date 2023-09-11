@@ -1,6 +1,6 @@
-import {AnimeWithId} from '../../types/animeData';
+import {AnimeWithId} from '../../types/anime-data';
 import {Card} from '../card/card';
-import s from './Card-list.module.css';
+import s from './card-list.module.css';
 
 type CardListProps = {
     cards: AnimeWithId[] | null;

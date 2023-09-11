@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {AnimeData} from '../types/animeData';
+import {AnimeData} from '../types/anime-data';
 import {ErrorType} from '../types/error';
 import {errorHandle} from '../services/error-handler';
 
