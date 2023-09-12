@@ -19,12 +19,16 @@ function LogIn() {
 
     const handleUserNameChange = (e: ChangeEvent<HTMLInputElement>) => {
         setUserName(e.target.value);
-        if (invalidLogin) setInvalidLogin(false);
+        if (invalidLogin) {
+            setInvalidLogin(false);
+        }
     };
 
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value);
-        if (invalidPassword) setInvalidPassword(false);
+        if (invalidPassword) {
+            setInvalidPassword(false);
+        }
     };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

@@ -29,13 +29,11 @@ function SignUp() {
         const userInfo = {
             userName,
             password,
-            favorites: [],
-            history: [],
+            // favorites: [],
+            // history: [],
         };
         console.log(userInfo);
         dispatch(logIn(userInfo));
-        // dispatch(setFavorites(userInfo.favorites));
-        // dispatch(setHistory(userInfo.history));
     };
 
     return (
