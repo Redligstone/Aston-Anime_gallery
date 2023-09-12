@@ -1,0 +1,55 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+.container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Input field styles */
+.inputContainer {
+    margin-bottom: 20px;
+}
+
+.inputField {
+    margin-top: 5px;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+
+.inputField:focus {
+    border-color: #007bff;
+}
+
+/* Error styles */
+.error {
+    margin-top: 5px;
+    color: #dc3545;
+}
+
+/* Button styles */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Hover color */
+}
