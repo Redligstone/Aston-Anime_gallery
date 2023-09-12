@@ -15,7 +15,7 @@ function SearchBar() {
         event.preventDefault();
 
         const query = (event.target as HTMLFormElement).search.value;
-        navigate(`/search/?query=${query}`);
+        navigate(`/search?query=${query}`);
     };
 
     return (
