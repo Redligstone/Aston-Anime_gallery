@@ -1,5 +1,5 @@
 const AppRoute = {
-    Search: 'search/:query',
+    Search: 'search',
     AboutItem: 'about-item/:id',
     LogIn: 'login',
     SignUp: 'signup',

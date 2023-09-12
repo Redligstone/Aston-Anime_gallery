@@ -1,16 +1,16 @@
-import {useParams} from 'react-router';
+import {useSearchParams} from 'react-router-dom';
 import {CardList} from '../../components/card-list/card-list';
 import {Loader} from '../../components/loader/loader';
 import {SearchBar} from '../../components/search-bar/search-bar';
-import {useGetCardsQuery} from '../../api/cardsApi';
-
+import {useGetCardsQuery} from '../../api/cards-api';
 import s from './search-result.module.css';
 
 function SearchResult() {
-    const {query} = useParams();
+    const [searchParams] = useSearchParams();
+    const query = searchParams.get('query');
     const {data} = useGetCardsQuery({search: query, size: '10'});
 
-    const cardListRender = () => <>{data ? <CardList cards={data} /> : <Loader />}</>;
+    const cardListRender = () => (data ? <CardList cards={data} /> : <Loader />);
 
     const renderContent = () => {
         if (!query || !query.length) {

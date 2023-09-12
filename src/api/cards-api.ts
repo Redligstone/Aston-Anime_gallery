@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {AnimeData, AnimeWithId} from '../types/anime-data';
 import {Meta} from '../types/meta';
 
-import {renameIdsInData} from '../services/renameIdsInData';
+import {renameIdsInData} from '../services/rename-ids-in-data';
 import {errorHandle} from '../services/error-handler';
 
 const BASE_URL = 'https://anime-db.p.rapidapi.com/';
@@ -25,7 +25,7 @@ export type ResponseType = {
 };
 
 type ExtraParams = {
-    search?: string;
+    search?: string | null;
     size?: string;
 };
 

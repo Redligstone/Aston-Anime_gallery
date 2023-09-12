@@ -1,5 +1,5 @@
 import {useNavigate, useParams} from 'react-router-dom';
-import {useDataFetching} from '../../hooks/useDataFetching';
+import {useDataFetching} from '../../hooks/use-data-fetching';
 import {Loader} from '../../components/loader/loader';
 import {Button} from '../../components/button/button';
 

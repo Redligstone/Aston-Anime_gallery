@@ -1,4 +1,4 @@
-import {useGetCardsQuery} from '../../api/cardsApi';
+import {useGetCardsQuery} from '../../api/cards-api';
 import {CardList} from '../../components/card-list/card-list';
 import {Loader} from '../../components/loader/loader';
 import {SearchBar} from '../../components/search-bar/search-bar';

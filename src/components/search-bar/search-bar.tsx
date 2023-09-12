@@ -1,17 +1,21 @@
 import React, {useRef} from 'react';
-import {useNavigate, useParams} from 'react-router';
+import {useLocation, useNavigate} from 'react-router';
 import s from './search-bar.module.css';
 
 function SearchBar() {
     const navigate = useNavigate();
-    const {query} = useParams();
+    const location = useLocation();
+
+    const userQuery = new URLSearchParams(location.search);
+    const currentQuery = userQuery.get('query') || '';
 
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const newQuery = inputRef.current?.value || '';
-        navigate(`/search/${newQuery}`);
+
+        const query = (event.target as HTMLFormElement).search.value;
+        navigate(`/search/?query=${query}`);
     };
 
     return (
@@ -19,7 +23,7 @@ function SearchBar() {
             <form className={s.wrapper} onSubmit={handleSubmit}>
                 <input
                     type="search"
-                    defaultValue={query}
+                    defaultValue={currentQuery}
                     ref={inputRef}
                     className={s.input}
                     placeholder="Search..."
