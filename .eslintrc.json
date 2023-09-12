@@ -29,9 +29,11 @@
         "@typescript-eslint",
         "react",
         "prettier",
-        "react-hooks"
+        "react-hooks",
+        "filenames"
     ],
     "rules": {
+        "filenames/match-regex": ["error", "^[a-z0-9]+(-[a-z0-9]+)*$"],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "comma-dangle": [

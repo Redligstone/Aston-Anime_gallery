@@ -1,5 +1,13 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import {cardsApi} from '../api/cards-api';
+
+export const rootReducer = combineReducers({
+    [cardsApi.reducerPath]: cardsApi.reducer,
+});
 
 export const store = configureStore({
-    reducer: {},
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardsApi.middleware),
 });
+
+export type RootState = ReturnType<typeof store.getState>;

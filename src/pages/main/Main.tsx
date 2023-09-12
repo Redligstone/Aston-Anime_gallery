@@ -1,23 +1,30 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Header} from '../../components/header/Header';
+import {Header} from '../../components/header/header';
+import {AppRoute} from '../../routing/app-route';
+import {SearchResult} from '../search/search-result';
+import {AboutItem} from '../about-item/about-item';
+import {Home} from '../home/home';
+import s from './main.module.css';
 
 function Main() {
     return (
         <BrowserRouter>
             <Header />
-            {/* //suspense */}
-            <Routes>
-                <Route />
-                <Route />
-                <Route />
-                <Route />
-                <Route />
+            <div className={s.wrapper}>
+                {/* //suspense */}
+                <Routes>
+                    <Route path={AppRoute.Empty} element={<Home />} />
+                    <Route path={AppRoute.Search} element={<SearchResult />} />
+                    <Route path={AppRoute.AboutItem} element={<AboutItem />} />
+                    <Route />
+                    <Route />
 
-                {/* <protectedRoutes>
-
-                </protectedRoutes> */}
-            </Routes>
-            {/* //suspense */}
+                    {/* <protectedRoutes>
+    
+                    </protectedRoutes> */}
+                </Routes>
+                {/* //suspense */}
+            </div>
         </BrowserRouter>
     );
 }

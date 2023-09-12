@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 40px 40px;
+    margin: 0;
+    padding: 20px 120px;
+    list-style-type: none;
+}
