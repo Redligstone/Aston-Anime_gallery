@@ -15,27 +15,22 @@ function Card({data}: CardProps) {
     };
     return (
         <article className={s.card}>
-            <div>
-                <div className={s.img_wrp}>
+            <div className={s.cardInner}>
+                <div className={s.imgWrapper}>
                     <img className={s.img} src={image} alt={title} />
                 </div>
-
-                <div className={s.card_body}>
-                    <div className={s.card_characteristics}>
+                <div className={s.cardBody}>
+                    <div className={s.cardHeader}>
                         <div className={s.ranking}>
-                            {/* <StarSvg /> */}
-                            <div>{ranking}</div>
+                            <span className={s.rankingStar}>★</span>
+                            <span className={s.rankingText}>{ranking}</span>
                         </div>
                         <div className={s.episodes}>{episodes} episodes</div>
                     </div>
                     <h2 className={s.title}>{title}</h2>
                 </div>
             </div>
-            <button
-                type="button"
-                className={`${s.view_btn}`}
-                onClick={() => handleDetailedPageClick(id)}
-            >
+            <button type="button" className={s.viewBtn} onClick={() => handleDetailedPageClick(id)}>
                 View more
             </button>
         </article>
