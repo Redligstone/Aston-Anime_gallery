@@ -20,6 +20,25 @@
     color: #201b1b;
 }
 
+.logo {
+    text-decoration: none;
+    font-size: 34px;
+    display: inline-flex;
+    align-items: center;
+    color: #007bff;
+}
+
+.logoText {
+    font-weight: bold;
+    margin-right: 5px;
+    text-shadow: 0 0 5px rgba(241, 120, 21, 0.7);
+}
+
+.logoAccent {
+    color: #333;
+    text-shadow: 0 0 5px rgba(5, 15, 26, 0.7);
+}
+
 .btn {
     margin-left: 10px;
     background-color: #007bff;
@@ -33,7 +52,7 @@
     text-decoration: none;
 }
 .btn:hover {
-    background-color: #0056b3; /* Hover color */
+    background-color: #0056b3;
 }
 
 .btn:first-child {

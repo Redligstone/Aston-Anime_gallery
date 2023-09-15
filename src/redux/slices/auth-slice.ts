@@ -4,7 +4,7 @@ import {RootState} from '../store';
 
 type InitialState = {
     authorizationStatus: boolean;
-    userName: string;
+    userName: string | null;
 };
 
 const initialState: InitialState = {

@@ -1,5 +1,5 @@
 import {User} from '../types/user';
-// import {HistoryRecord} from '../types/history-record';
+import {HistoryRecord} from '../types/history-record';
 // import {AnimeWithId} from '../types/anime-data';
 
 export const localStorageUtil = {
@@ -16,4 +16,15 @@ export const localStorageUtil = {
     },
     setAuth: (name: string): void => localStorage.setItem('auth', name),
     getAuth: (): string | null => localStorage.getItem('auth'),
+    setSearchHistory: (key: string, history: HistoryRecord[]): void => {
+        const userData = localStorage.getItem(key);
+        if (userData) {
+            const parsedUserData = JSON.parse(userData);
+            localStorage.setItem(key, JSON.stringify({...parsedUserData, history}));
+        }
+    },
+    getSearchHistory: (key: string): HistoryRecord[] => {
+        const historyString = localStorage.getItem(key);
+        return historyString ? JSON.parse(historyString).history : [];
+    },
 };

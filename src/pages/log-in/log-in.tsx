@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router';
 import {AppRoute} from '../../routing/app-route';
 import {logIn} from '../../redux/slices/auth-slice';
 import {localStorageUtil} from '../../utils/local-storage';
+import {setHistory} from '../../redux/slices/history-slice';
 
 import s from './log-in.module.css';
 
@@ -41,12 +42,14 @@ function LogIn() {
             setInvalidPassword(true);
         } else {
             dispatch(logIn(userInfo));
+            dispatch(setHistory(userInfo?.history));
             navigate(AppRoute.Empty);
         }
     };
 
     return (
         <form className={s.form} action="#" onSubmit={handleSubmit}>
+            <h2 className={s.title}>Log in</h2>
             <div className={s.container}>
                 <div className={s.inputContainer}>
                     <label htmlFor="userName">User name</label>

@@ -29,8 +29,7 @@ function SignUp() {
         const userInfo = {
             userName,
             password,
-            // favorites: [],
-            // history: [],
+            history: [],
         };
         console.log(userInfo);
         dispatch(logIn(userInfo));
@@ -38,6 +37,7 @@ function SignUp() {
 
     return (
         <form className={s.form} action="#" onSubmit={handleSubmit}>
+            <h2 className={s.title}>Sign Up</h2>
             <div className={s.container}>
                 <div className={s.inputContainer}>
                     <label htmlFor="userName">User name</label>

@@ -6,6 +6,8 @@ import {AboutItem} from '../about-item/about-item';
 import {Home} from '../home/home';
 import {SignUp} from '../sign-up/sign-up';
 import {LogIn} from '../log-in/log-in';
+import {History} from '../history/history';
+import {PrivateOutlet} from '../../routing/private-outlet';
 
 import s from './main.module.css';
 
@@ -22,13 +24,14 @@ function Main() {
                     <Route path={AppRoute.SignUp} element={<SignUp />} />
                     <Route path={AppRoute.LogIn} element={<LogIn />} />
 
-                    {/* <protectedRoutes>
-    
-                    </protectedRoutes> */}
+                    <Route path={AppRoute.History} element={<PrivateOutlet />}>
+                        <Route index element={<History />} />
+                    </Route>
                 </Routes>
                 {/* //suspense */}
             </div>
         </BrowserRouter>
     );
 }
+
 export {Main};

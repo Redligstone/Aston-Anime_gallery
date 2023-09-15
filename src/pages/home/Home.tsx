@@ -4,10 +4,18 @@ import {Loader} from '../../components/loader/loader';
 import {SearchBar} from '../../components/search-bar/search-bar';
 import s from './home.module.css';
 
-const TOP_COUNT = '5';
-
 function Home() {
-    const {data} = useGetCardsQuery({search: '', size: TOP_COUNT});
+    const {data} = useGetCardsQuery({search: '', size: '5'});
+
+    // const [fetchData] = useLazyGetCardsQuery();
+    // const response = fetchData({search: '', size: '5'});
+
+    // // if (data) {
+    // //     const sortedAnime = [...data].sort((a, b) => b.ranking - a.ranking);
+    // //     topRatedAnime = sortedAnime.slice(0, 5);
+    // // }
+    console.log(data);
+
     return (
         <div className={s.container}>
             <SearchBar />

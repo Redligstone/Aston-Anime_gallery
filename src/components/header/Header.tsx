@@ -20,7 +20,8 @@ function Header() {
         <div className={s.header}>
             <div className={s.container}>
                 <Link to="/" className={s.logo}>
-                    Anime gallery
+                    <span className={s.logoText}>Anime</span>
+                    <span className={s.logoAccent}>Gallery</span>
                 </Link>
 
                 {authStatus ? (
