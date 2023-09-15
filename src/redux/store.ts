@@ -1,6 +1,6 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import {cardsApi} from '../api/cards-api';
-import {UserStateSyncMiddleware} from './middleware/listener-middle-ware';
+import {UserStateSyncMiddleware} from './middleware/users-state-sync-middle-ware';
 import {SliceNames} from './slice-names';
 import {auth} from './slices/auth-slice';
 
