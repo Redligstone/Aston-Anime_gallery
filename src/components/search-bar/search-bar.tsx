@@ -3,14 +3,11 @@ import {useLocation, useNavigate} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
 import {search} from '../../redux/actions/search';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
-import {useLazyGetCardsQuery} from '../../api/cards-api';
+import {fetchData} from '../../services/fetch-data';
 
 import s from './search-bar.module.css';
 
 function SearchBar() {
-    // нужно апдейтнуть способ передачи queryResult в сёрч и потом в мидлвару.
-    // убрать получаемую дату из компонента, она не нужна здесь
-    const [fetchData] = useLazyGetCardsQuery();
     const user = useSelector(getUserNameSelector);
 
     const navigate = useNavigate();
@@ -24,14 +21,21 @@ function SearchBar() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         const query = (event.target as HTMLFormElement).search.value;
-        const response = await fetchData({search: inputRef.current?.value});
-        const queryResult = response.data;
+        console.log(query);
 
-        // console.log(queryResult);
+        try {
+            const response = await fetchData(query);
+            console.log(response);
 
-        dispatch(search({user, query, queryResult}));
+            if (response.data && query !== '') {
+                const queryResult = response.data;
+                console.log(queryResult, query);
+                dispatch(search({user, query, queryResult}));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
 
         navigate(`/search?query=${query}`);
     };

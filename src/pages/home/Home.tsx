@@ -7,7 +7,7 @@ import s from './home.module.css';
 function Home() {
     const {data} = useGetCardsQuery({search: '', size: '5'});
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className={s.container}>

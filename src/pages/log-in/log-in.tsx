@@ -1,10 +1,8 @@
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
-import {AppRoute} from '../../routing/app-route';
-import {logIn} from '../../redux/slices/auth-slice';
 import {localStorageUtil} from '../../utils/local-storage';
-import {setHistory} from '../../redux/slices/history-slice';
+import {handleLogIn} from '../../services/handle-login';
 
 import s from './log-in.module.css';
 
@@ -41,9 +39,7 @@ function LogIn() {
         } else if (userInfo.password !== password) {
             setInvalidPassword(true);
         } else {
-            dispatch(logIn(userInfo));
-            dispatch(setHistory(userInfo?.history));
-            navigate(AppRoute.Empty);
+            handleLogIn(userInfo, dispatch, navigate);
         }
     };
 

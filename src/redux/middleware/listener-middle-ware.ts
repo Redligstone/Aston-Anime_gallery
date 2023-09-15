@@ -6,9 +6,9 @@ import {HistoryRecord} from '../../types/history-record';
 import {setHistory, updateHistory} from '../slices/history-slice';
 import {search} from '../actions/search';
 
-const listenerMiddleware = createListenerMiddleware();
+const UserStateSyncMiddleware = createListenerMiddleware();
 
-listenerMiddleware.startListening({
+UserStateSyncMiddleware.startListening({
     actionCreator: init,
     effect: (action, listenerApi) => {
         const userName = localStorageUtil.getAuth();
@@ -20,7 +20,7 @@ listenerMiddleware.startListening({
     },
 });
 
-listenerMiddleware.startListening({
+UserStateSyncMiddleware.startListening({
     actionCreator: logIn,
     effect: (action) => {
         localStorageUtil.setItem(action.payload.userName, action.payload);
@@ -28,7 +28,7 @@ listenerMiddleware.startListening({
     },
 });
 
-listenerMiddleware.startListening({
+UserStateSyncMiddleware.startListening({
     actionCreator: search,
     effect: (action, listenerApi) => {
         const {user, query, queryResult} = action.payload;
@@ -53,4 +53,4 @@ listenerMiddleware.startListening({
     },
 });
 
-export {listenerMiddleware};
+export {UserStateSyncMiddleware};

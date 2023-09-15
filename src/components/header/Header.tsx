@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
+import {clearHistory} from '../../redux/slices/history-slice';
 import {getAuthStatusSelector, getUserNameSelector, logOut} from '../../redux/slices/auth-slice';
 import {AppRoute} from '../../routing/app-route';
 import {localStorageUtil} from '../../utils/local-storage';
@@ -14,6 +15,7 @@ function Header() {
     const handleLogoutClick = () => {
         localStorageUtil.setAuth('');
         dispatch(logOut());
+        dispatch(clearHistory());
     };
 
     return (
