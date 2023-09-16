@@ -1,5 +1,5 @@
 import {PayloadAction, createSlice} from '@reduxjs/toolkit';
-import {SliceNames} from '../slice-names';
+import {sliceNames} from '../slice-names';
 import {HistoryRecord} from '../../types/history-record';
 
 type InitialState = {
@@ -11,7 +11,7 @@ const initialState: InitialState = {
 };
 
 export const history = createSlice({
-    name: SliceNames.History,
+    name: sliceNames.History,
     initialState,
     reducers: {
         updateHistory: (state, action: PayloadAction<HistoryRecord>) => {

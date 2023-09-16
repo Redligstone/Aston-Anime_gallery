@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {SliceNames} from '../slice-names';
+import {sliceNames} from '../slice-names';
 import {RootState} from '../store';
 
 type InitialState = {
@@ -13,7 +13,7 @@ const initialState: InitialState = {
 };
 
 export const auth = createSlice({
-    name: SliceNames.Auth,
+    name: sliceNames.Auth,
     initialState,
     reducers: {
         logIn: (state, action) => {
