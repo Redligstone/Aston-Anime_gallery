@@ -1,10 +1,15 @@
 .form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 200px;
     height: calc(100vh - 120px);
 }
-
+.title {
+    font-size: 34px;
+    letter-spacing: 1px;
+}
 .container {
     background-color: #fff;
     border: 1px solid #ccc;

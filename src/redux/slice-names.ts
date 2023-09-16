@@ -1,4 +1,4 @@
-export const SliceNames = {
+export const sliceNames = {
     App: 'APP',
     Auth: 'AUTH',
     Favorite: 'FAVORITE',

@@ -8,7 +8,7 @@ import s from './search-result.module.css';
 function SearchResult() {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query');
-    const {data} = useGetCardsQuery({search: query, size: '10'});
+    const {data} = useGetCardsQuery({search: query, size: '100'});
 
     const cardListRender = () => (data ? <CardList cards={data} /> : <Loader />);
 

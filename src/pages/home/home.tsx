@@ -4,10 +4,9 @@ import {Loader} from '../../components/loader/loader';
 import {SearchBar} from '../../components/search-bar/search-bar';
 import s from './home.module.css';
 
-const TOP_COUNT = '5';
-
 function Home() {
-    const {data} = useGetCardsQuery({search: '', size: TOP_COUNT});
+    const {data} = useGetCardsQuery({search: '', size: '5'});
+
     return (
         <div className={s.container}>
             <SearchBar />

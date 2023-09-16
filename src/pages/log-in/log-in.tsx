@@ -1,9 +1,11 @@
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
+import {localStorageUtil} from '../../utils/local-storage';
+import {User} from '../../types/user';
+import {setHistory} from '../../redux/slices/history-slice';
 import {AppRoute} from '../../routing/app-route';
 import {logIn} from '../../redux/slices/auth-slice';
-import {localStorageUtil} from '../../utils/local-storage';
 
 import s from './log-in.module.css';
 
@@ -31,6 +33,12 @@ function LogIn() {
         }
     };
 
+    const handleLogIn = (userInfo: User) => {
+        dispatch(logIn(userInfo));
+        dispatch(setHistory(userInfo?.history));
+        navigate(AppRoute.Empty);
+    };
+
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const userInfo = localStorageUtil.getUser(userName);
@@ -40,13 +48,13 @@ function LogIn() {
         } else if (userInfo.password !== password) {
             setInvalidPassword(true);
         } else {
-            dispatch(logIn(userInfo));
-            navigate(AppRoute.Empty);
+            handleLogIn(userInfo);
         }
     };
 
     return (
         <form className={s.form} action="#" onSubmit={handleSubmit}>
+            <h2 className={s.title}>Log in</h2>
             <div className={s.container}>
                 <div className={s.inputContainer}>
                     <label htmlFor="userName">User name</label>
