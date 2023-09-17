@@ -5,7 +5,7 @@ import {init} from '../actions/init';
 import {HistoryRecord} from '../../types/history-record';
 import {setHistory, updateHistory} from '../slices/history-slice';
 import {search} from '../actions/search';
-import {addFavorite, deleteFavorite} from '../slices/favorites-slice';
+import {addFavorite, deleteFavorite, setFavorites} from '../slices/favorites-slice';
 
 const userStateSyncMiddleware = createListenerMiddleware();
 
@@ -17,6 +17,7 @@ userStateSyncMiddleware.startListening({
             const userInfo = localStorageUtil.getUser(userName);
             listenerApi.dispatch(logIn(userInfo));
             listenerApi.dispatch(setHistory(userInfo?.history));
+            listenerApi.dispatch(setFavorites(userInfo?.favorites));
         }
     },
 });
