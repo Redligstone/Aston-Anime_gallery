@@ -1,3 +1,4 @@
 .loader {
     padding: 50px;
+    height: calc(100vh - 200px);
 }

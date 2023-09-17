@@ -8,6 +8,7 @@ import {SignUp} from '../sign-up/sign-up';
 import {LogIn} from '../log-in/log-in';
 import {History} from '../history/history';
 import {PrivateOutlet} from '../../routing/private-outlet';
+import {Favorites} from '../favorites/favorites';
 
 import s from './main.module.css';
 
@@ -26,6 +27,10 @@ function Main() {
 
                     <Route path={AppRoute.History} element={<PrivateOutlet />}>
                         <Route index element={<History />} />
+                    </Route>
+
+                    <Route path={AppRoute.Favorites} element={<PrivateOutlet />}>
+                        <Route index element={<Favorites />} />
                     </Route>
                 </Routes>
                 {/* //suspense */}

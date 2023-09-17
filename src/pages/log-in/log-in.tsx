@@ -6,6 +6,7 @@ import {User} from '../../types/user';
 import {setHistory} from '../../redux/slices/history-slice';
 import {AppRoute} from '../../routing/app-route';
 import {logIn} from '../../redux/slices/auth-slice';
+import {setFavorites} from '../../redux/slices/favorites-slice';
 
 import s from './log-in.module.css';
 
@@ -36,6 +37,7 @@ function LogIn() {
     const handleLogIn = (userInfo: User) => {
         dispatch(logIn(userInfo));
         dispatch(setHistory(userInfo?.history));
+        dispatch(setFavorites(userInfo?.favorites));
         navigate(AppRoute.Empty);
     };
 

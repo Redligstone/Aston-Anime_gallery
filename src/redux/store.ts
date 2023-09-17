@@ -3,10 +3,12 @@ import {cardsApi} from '../api/cards-api';
 import {userStateSyncMiddleware} from './middleware/users-state-sync-middleware';
 import {sliceNames} from './slice-names';
 import {auth} from './slices/auth-slice';
+import {favorite} from './slices/favorites-slice';
 
 export const rootReducer = combineReducers({
     [cardsApi.reducerPath]: cardsApi.reducer,
     [sliceNames.Auth]: auth.reducer,
+    [sliceNames.Favorite]: favorite.reducer,
 });
 
 export const store = configureStore({

@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);
-    background-color: rgb(225, 239, 252);
+    height: calc(100% - 60px);
+    background-color: #8b789b;
     padding: 10px 40px 0 40px;
 }

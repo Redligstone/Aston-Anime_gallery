@@ -29,8 +29,8 @@ function Header() {
                 {authStatus ? (
                     <div className="nav_buttons">
                         <div>
-                            <span>{userName}</span>
-                            <Link to={AppRoute.Favorites} className={`${s.btn}`}>
+                            <span className={`${s.btn} ${s.user}`}>{userName}</span>
+                            <Link to={AppRoute.Favorites} className={`${s.btn} `}>
                                 Favorites
                             </Link>
                             <Link to={AppRoute.History} className={`${s.btn}`}>

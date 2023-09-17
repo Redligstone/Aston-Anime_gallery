@@ -55,13 +55,13 @@ function AboutItem() {
                     </div>
 
                     <div className={s.synopsis}>
-                        <div>Synopsis </div>
+                        <div className={s.synopsisTitle}>Synopsis: </div>
                         <div>
                             <span>{` ${anime.synopsis}`}</span>
                         </div>
                     </div>
 
-                    <Button onClick={backButtonHandler} className={s.customButton}>
+                    <Button onClick={backButtonHandler} classValue="about-item-default-btn">
                         ← Back
                     </Button>
                 </div>

@@ -3,24 +3,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 140px);
+    margin-top: -40px;
 }
 .title {
     font-size: 34px;
     letter-spacing: 1px;
+    color: whitesmoke;
 }
 
 .container {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
+    padding: 60px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
 
-/* Input field styles */
 .inputContainer {
     margin-bottom: 20px;
 }
@@ -28,7 +28,8 @@
 .inputField {
     margin-top: 5px;
     width: 90%;
-    padding: 10px;
+    padding: 20px;
+    font-size: 22px;
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color 0.2s;
@@ -38,24 +39,29 @@
     border-color: #007bff;
 }
 
-/* Error styles */
 .error {
     margin-top: 5px;
     color: #dc3545;
 }
 
-/* Button styles */
 .btn {
-    background-color: #007bff;
+    background-color: #407099;
     color: #fff;
     border: none;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 15px 26px;
     cursor: pointer;
+    font-size: 20px;
     font-weight: bold;
     transition: background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Hover color */
+    background-color: #0056b3;
+}
+
+label {
+    color: #407099;
+    font-size: 22px;
+    letter-spacing: 1px;
 }

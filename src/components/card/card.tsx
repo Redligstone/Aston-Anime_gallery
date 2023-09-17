@@ -1,20 +1,48 @@
 import {useNavigate} from 'react-router';
+import {useDispatch, useSelector} from 'react-redux';
+import {addFavorite, deleteFavorite} from '../../redux/slices/favorites-slice';
 import {AnimeWithId} from '../../types/anime-data';
+import {getAuthStatusSelector} from '../../redux/slices/auth-slice';
+import {FavoriteSvg} from '../favorite-svg/favorite-svg';
+
 import s from './card.module.css';
 
 type CardProps = {
     data: AnimeWithId;
+    isFavorite: boolean;
 };
 
-function Card({data}: CardProps) {
+function Card({data, isFavorite}: CardProps) {
     const {id, title, image, ranking, episodes} = data;
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const authStatus = useSelector(getAuthStatusSelector);
 
     const handleDetailedPageClick = (idAnime: string) => {
         navigate(`/about-item/${idAnime}`, {replace: true});
     };
+
+    const handleLikeClick = (idAnime: string) => {
+        if (isFavorite) {
+            dispatch(deleteFavorite(idAnime));
+            return;
+        }
+        dispatch(addFavorite(data));
+    };
+
     return (
         <article className={s.card}>
+            {authStatus ? (
+                <button
+                    className={`${s.favoriteButton} ${isFavorite ? s.favorite : ''}`}
+                    type="button"
+                    onClick={() => handleLikeClick(id)}
+                >
+                    <FavoriteSvg color={isFavorite ? 'red' : 'grey'} />
+                </button>
+            ) : null}
+
             <div className={s.cardInner}>
                 <div className={s.imgWrapper}>
                     <img className={s.img} src={image} alt={title} />
