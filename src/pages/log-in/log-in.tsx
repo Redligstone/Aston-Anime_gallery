@@ -1,7 +1,6 @@
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
-// import {localStorageUtil} from '../../utils/local-storage';
 import {handleLogIn} from '../../services/registration-auth';
 
 import s from './log-in.module.css';
