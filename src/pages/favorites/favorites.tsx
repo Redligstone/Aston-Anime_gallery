@@ -1,7 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {getFavorites} from '../../redux/slices/favorites-slice';
-import {AnimeWithId} from '../../types/anime-data';
 import {Button} from '../../components/button/button';
 import {CardList} from '../../components/card-list/card-list';
 
@@ -10,7 +9,7 @@ import s from './favorites.module.css';
 function Favorites() {
     const navigate = useNavigate();
 
-    const favorites: AnimeWithId[] = useSelector(getFavorites);
+    const favorites = useSelector(getFavorites);
 
     const backButtonHandler = () => {
         navigate('/');

@@ -1,11 +1,8 @@
 import {ChangeEvent, FormEvent, useState} from 'react';
 import {useDispatch} from 'react-redux';
-
 import {useNavigate} from 'react-router';
-import {AppRoute} from '../../routing/app-route';
-import {logIn} from '../../redux/slices/auth-slice';
-import {setFavorites} from '../../redux/slices/favorites-slice';
-import {setHistory} from '../../redux/slices/history-slice';
+import {localStorageUtil} from '../../utils/local-storage';
+import {handleSignUp} from '../../services/registration-auth';
 
 import s from './sign-up.module.css';
 
@@ -23,23 +20,19 @@ function SignUp() {
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.currentTarget.value);
     };
-    const handleSignUp = () => {
-        const userInfo = {
-            userName,
-            password,
-            history: [],
-            favorites: [],
-        };
-        console.log(userInfo);
-        dispatch(logIn(userInfo));
-        dispatch(setFavorites(userInfo.favorites));
-        dispatch(setHistory(userInfo.history));
-    };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        navigate(AppRoute.Empty);
-        handleSignUp();
+        const existingUser = localStorageUtil.getUser(userName);
+        if (!existingUser) {
+            const userInfo = {
+                userName,
+                password,
+            };
+            handleSignUp({navigate, dispatch}, userInfo);
+        } else {
+            alert('User with this name alredy exists');
+        }
     };
 
     return (

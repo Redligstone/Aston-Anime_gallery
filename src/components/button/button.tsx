@@ -9,7 +9,7 @@ type ButtonProps = {
 
 function Button({onClick, classValue, children}: ButtonProps) {
     return (
-        <button className={`${classValue}`} type="button" onClick={onClick}>
+        <button className={classValue} type="button" onClick={onClick}>
             {children}
         </button>
     );

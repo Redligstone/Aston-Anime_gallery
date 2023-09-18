@@ -2,11 +2,7 @@ import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {localStorageUtil} from '../../utils/local-storage';
-import {User} from '../../types/user';
-import {setHistory} from '../../redux/slices/history-slice';
-import {AppRoute} from '../../routing/app-route';
-import {logIn} from '../../redux/slices/auth-slice';
-import {setFavorites} from '../../redux/slices/favorites-slice';
+import {handleLogIn} from '../../services/registration-auth';
 
 import s from './log-in.module.css';
 
@@ -34,13 +30,6 @@ function LogIn() {
         }
     };
 
-    const handleLogIn = (userInfo: User) => {
-        dispatch(logIn(userInfo));
-        dispatch(setHistory(userInfo?.history));
-        dispatch(setFavorites(userInfo?.favorites));
-        navigate(AppRoute.Empty);
-    };
-
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const userInfo = localStorageUtil.getUser(userName);
@@ -50,7 +39,7 @@ function LogIn() {
         } else if (userInfo.password !== password) {
             setInvalidPassword(true);
         } else {
-            handleLogIn(userInfo);
+            handleLogIn({navigate, dispatch}, userInfo);
         }
     };
 
