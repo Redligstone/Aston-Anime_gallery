@@ -1,7 +1,6 @@
 import {ChangeEvent, FormEvent, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
-import {localStorageUtil} from '../../utils/local-storage';
 import {handleSignUp} from '../../services/registration-auth';
 
 import s from './sign-up.module.css';
@@ -23,14 +22,11 @@ function SignUp() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const existingUser = localStorageUtil.getUser(userName);
-        if (!existingUser) {
-            const userInfo = {
-                userName,
-                password,
-            };
-            handleSignUp({navigate, dispatch}, userInfo);
-        } else {
+
+        const userInfo = {userName, password};
+        const signUpSuccess = handleSignUp({navigate, dispatch}, userInfo);
+
+        if (!signUpSuccess) {
             alert('User with this name alredy exists');
         }
     };

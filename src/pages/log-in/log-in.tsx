@@ -1,7 +1,7 @@
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
-import {localStorageUtil} from '../../utils/local-storage';
+// import {localStorageUtil} from '../../utils/local-storage';
 import {handleLogIn} from '../../services/registration-auth';
 
 import s from './log-in.module.css';
@@ -30,17 +30,12 @@ function LogIn() {
         }
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const userInfo = localStorageUtil.getUser(userName);
-
-        if (!userInfo) {
-            setInvalidLogin(true);
-        } else if (userInfo.password !== password) {
-            setInvalidPassword(true);
-        } else {
-            handleLogIn({navigate, dispatch}, userInfo);
-        }
+        const userInfo = {userName, password};
+        const authResult = handleLogIn({navigate, dispatch}, userInfo);
+        setInvalidLogin(authResult.invalidLogin);
+        setInvalidPassword(authResult.invalidPassword);
     };
 
     return (
