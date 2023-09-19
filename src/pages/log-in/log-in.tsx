@@ -1,13 +1,16 @@
-import {useState, ChangeEvent, FormEvent} from 'react';
+import {useState, ChangeEvent, FormEvent, useContext} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {handleLogIn} from '../../services/registration-auth';
+import {ThemeContext} from '../../services/theme/theme-provider';
 
 import s from './log-in.module.css';
 
 function LogIn() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {theme} = useContext(ThemeContext);
+    const labelClass = theme === 'first' ? s.label : s.labelSecond;
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -38,47 +41,53 @@ function LogIn() {
     };
 
     return (
-        <form className={s.form} action="#" onSubmit={handleSubmit}>
-            <h2 className={s.title}>Log in</h2>
-            <div className={s.container}>
-                <div className={s.inputContainer}>
-                    <label htmlFor="userName">User name</label>
-                    <input
-                        type="text"
-                        className={`${s.inputField} form-control`}
-                        id="userName"
-                        name="userName"
-                        aria-describedby="userNameHelp"
-                        placeholder="Enter username"
-                        value={userName}
-                        required
-                        onChange={handleUserNameChange}
-                    />
-                    {invalidLogin && (
-                        <div className={s.error}>User was not found. Please, try again.</div>
-                    )}
+        <div className={s.wrapper}>
+            <form className={s.form} action="#" onSubmit={handleSubmit}>
+                <h2 className={theme === 'first' ? s.title : s.titleSecond}>Log in</h2>
+                <div className={s.container}>
+                    <div className={s.inputContainer}>
+                        <label className={labelClass} htmlFor="userName">
+                            User name
+                        </label>
+                        <input
+                            type="text"
+                            className={`${s.inputField} form-control`}
+                            id="userName"
+                            name="userName"
+                            aria-describedby="userNameHelp"
+                            placeholder="Enter username"
+                            value={userName}
+                            required
+                            onChange={handleUserNameChange}
+                        />
+                        {invalidLogin && (
+                            <div className={s.error}>User was not found. Please, try again.</div>
+                        )}
+                    </div>
+                    <div className={s.inputContainer}>
+                        <label className={labelClass} htmlFor="password">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            className={`${s.inputField} form-control`}
+                            id="password"
+                            name="password"
+                            placeholder="Password"
+                            value={password}
+                            required
+                            onChange={handlePasswordChange}
+                        />
+                        {invalidPassword && (
+                            <div className={s.error}>Wrong password. Please, try again.</div>
+                        )}
+                    </div>
+                    <button className={theme === 'first' ? s.btn : s.btnSecond} type="submit">
+                        Log in
+                    </button>
                 </div>
-                <div className={s.inputContainer}>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        className={`${s.inputField} form-control`}
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
-                        required
-                        onChange={handlePasswordChange}
-                    />
-                    {invalidPassword && (
-                        <div className={s.error}>Wrong password. Please, try again.</div>
-                    )}
-                </div>
-                <button className={s.btn} type="submit">
-                    Log in
-                </button>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 }
 

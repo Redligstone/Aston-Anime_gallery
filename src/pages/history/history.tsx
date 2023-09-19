@@ -1,18 +1,18 @@
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-
+import {useContext} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {localStorageUtil} from '../../utils/local-storage';
 import {HistoryRecord, HistoryRecordWithId} from '../../types/history-record';
-
 import {Button} from '../../components/button/button';
-
+import {ThemeContext} from '../../services/theme/theme-provider';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
 
 import s from './history.module.css';
 
 function History() {
     const navigate = useNavigate();
+    const {theme} = useContext(ThemeContext);
 
     const user = useSelector(getUserNameSelector) || '';
     const searchHistory = localStorageUtil.getSearchHistory(user);
@@ -34,8 +34,8 @@ function History() {
 
     return (
         <div className={s.container}>
-            <h3>Search History:</h3>{' '}
-            <table className={`${s.table} ${s.tableHover}`}>
+            <h3 className={theme === 'first' ? s.header : s.headerSecond}>Search History:</h3>
+            <table className={`${theme === 'first' ? s.table : s.tableSecond} ${s.tableHover}`}>
                 <thead>
                     <tr>
                         <th scope="col">Date & Time</th>
@@ -55,7 +55,11 @@ function History() {
                                 <td>{queryResultNumber}</td>
                                 <td>
                                     <Button
-                                        classValue="view-default-button"
+                                        classValue={
+                                            theme === 'first'
+                                                ? 'view-default-button'
+                                                : 'view-default-button-second'
+                                        }
                                         onClick={() => handleClick(queryResultLink)}
                                     >
                                         View
@@ -66,7 +70,10 @@ function History() {
                     })}
                 </tbody>
             </table>
-            <Button onClick={backButtonHandler} classValue="default-button">
+            <Button
+                onClick={backButtonHandler}
+                classValue={theme === 'first' ? 'default-button' : 'default-button-second'}
+            >
                 ← Back
             </Button>
         </div>

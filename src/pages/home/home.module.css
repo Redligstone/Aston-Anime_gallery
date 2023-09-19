@@ -2,9 +2,13 @@
     padding: 5px;
 }
 .container {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 130px);
 }
 .title {
     color: whitesmoke;
+    font-size: 24px;
+}
+.titleSecond {
+    color: #055551;
     font-size: 24px;
 }

@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {useContext} from 'react';
 import {Header} from '../../components/header/header';
 import {AppRoute} from '../../routing/app-route';
 import {SearchResult} from '../search/search-result';
@@ -9,14 +10,17 @@ import {LogIn} from '../log-in/log-in';
 import {History} from '../history/history';
 import {PrivateOutlet} from '../../routing/private-outlet';
 import {Favorites} from '../favorites/favorites';
+import {ThemeContext} from '../../services/theme/theme-provider';
 
 import s from './main.module.css';
 
 function Main() {
+    const {theme} = useContext(ThemeContext);
+
     return (
         <BrowserRouter>
             <Header />
-            <div className={s.wrapper}>
+            <div className={theme === 'first' ? s.wrapper : s.wrapperSecond}>
                 {/* //suspense */}
                 <Routes>
                     <Route path={AppRoute.Empty} element={<Home />} />
