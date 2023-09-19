@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {handleSignUp} from '../../services/registration-auth';
 import {ThemeContext} from '../../services/theme/theme-provider';
+import {signUpClasses} from '../../services/theme/theme-classes/signup-classes';
 
 import s from './sign-up.module.css';
 
@@ -10,7 +11,7 @@ function SignUp() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {theme} = useContext(ThemeContext);
-    const labelClass = theme === 'first' ? s.label : s.labelSecond;
+    const labelClass = signUpClasses.labelClass(theme);
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -37,7 +38,7 @@ function SignUp() {
     return (
         <div className={s.wrapper}>
             <form className={s.form} action="#" onSubmit={handleSubmit}>
-                <h2 className={theme === 'first' ? s.title : s.titleSecond}>Sign Up</h2>
+                <h2 className={signUpClasses.titleClass(theme)}>Sign Up</h2>
                 <div className={s.container}>
                     <div className={s.inputContainer}>
                         <label className={labelClass} htmlFor="userName">
@@ -70,7 +71,7 @@ function SignUp() {
                             onChange={handlePasswordChange}
                         />
                     </div>
-                    <button className={theme === 'first' ? s.btn : s.btnSecond} type="submit">
+                    <button className={signUpClasses.buttonClass(theme)} type="submit">
                         Sign up
                     </button>
                 </div>

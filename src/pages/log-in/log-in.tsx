@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {handleLogIn} from '../../services/registration-auth';
 import {ThemeContext} from '../../services/theme/theme-provider';
+import {logInClasses} from '../../services/theme/theme-classes/login-classes';
 
 import s from './log-in.module.css';
 
@@ -10,7 +11,7 @@ function LogIn() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {theme} = useContext(ThemeContext);
-    const labelClass = theme === 'first' ? s.label : s.labelSecond;
+    const labelClass = logInClasses.labelClass(theme);
 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
@@ -43,7 +44,7 @@ function LogIn() {
     return (
         <div className={s.wrapper}>
             <form className={s.form} action="#" onSubmit={handleSubmit}>
-                <h2 className={theme === 'first' ? s.title : s.titleSecond}>Log in</h2>
+                <h2 className={logInClasses.titleClass(theme)}>Log in</h2>
                 <div className={s.container}>
                     <div className={s.inputContainer}>
                         <label className={labelClass} htmlFor="userName">
@@ -82,7 +83,7 @@ function LogIn() {
                             <div className={s.error}>Wrong password. Please, try again.</div>
                         )}
                     </div>
-                    <button className={theme === 'first' ? s.btn : s.btnSecond} type="submit">
+                    <button className={logInClasses.buttonClass(theme)} type="submit">
                         Log in
                     </button>
                 </div>

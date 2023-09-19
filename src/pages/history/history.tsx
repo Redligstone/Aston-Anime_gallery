@@ -7,6 +7,7 @@ import {HistoryRecord, HistoryRecordWithId} from '../../types/history-record';
 import {Button} from '../../components/button/button';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
+import {historyClasses} from '../../services/theme/theme-classes/history-classes';
 
 import s from './history.module.css';
 
@@ -34,8 +35,8 @@ function History() {
 
     return (
         <div className={s.container}>
-            <h3 className={theme === 'first' ? s.header : s.headerSecond}>Search History:</h3>
-            <table className={`${theme === 'first' ? s.table : s.tableSecond} ${s.tableHover}`}>
+            <h3 className={historyClasses.headerClass(theme)}>Search History:</h3>
+            <table className={`${historyClasses.tableClass(theme)} ${s.tableHover}`}>
                 <thead>
                     <tr>
                         <th scope="col">Date & Time</th>
@@ -55,11 +56,7 @@ function History() {
                                 <td>{queryResultNumber}</td>
                                 <td>
                                     <Button
-                                        classValue={
-                                            theme === 'first'
-                                                ? 'view-default-button'
-                                                : 'view-default-button-second'
-                                        }
+                                        classValue={historyClasses.buttonClass(theme)}
                                         onClick={() => handleClick(queryResultLink)}
                                     >
                                         View
@@ -70,10 +67,7 @@ function History() {
                     })}
                 </tbody>
             </table>
-            <Button
-                onClick={backButtonHandler}
-                classValue={theme === 'first' ? 'default-button' : 'default-button-second'}
-            >
+            <Button onClick={backButtonHandler} classValue={historyClasses.backButtonClass(theme)}>
                 ← Back
             </Button>
         </div>

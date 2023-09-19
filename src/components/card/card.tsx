@@ -6,6 +6,7 @@ import {AnimeWithId} from '../../types/anime-data';
 import {getAuthStatusSelector} from '../../redux/slices/auth-slice';
 import {FavoriteSvg} from '../favorite-svg/favorite-svg';
 import {ThemeContext} from '../../services/theme/theme-provider';
+import {cardStyles} from '../../services/theme/theme-classes/card-classes';
 
 import s from './card.module.css';
 
@@ -54,20 +55,16 @@ function Card({data, isFavorite}: CardProps) {
                     <div className={s.cardHeader}>
                         <div className={s.ranking}>
                             <span className={s.rankingStar}>★</span>
-                            <span
-                                className={theme === 'first' ? s.rankingText : s.rankingTextSecond}
-                            >
-                                {ranking}
-                            </span>
+                            <span className={cardStyles.rankingTextClass(theme)}>{ranking}</span>
                         </div>
                         <div className={s.episodes}>{episodes} episodes</div>
                     </div>
-                    <h2 className={theme === 'first' ? s.title : s.titleSecond}>{title}</h2>
+                    <h2 className={cardStyles.titleClass(theme)}>{title}</h2>
                 </div>
             </div>
             <button
                 type="button"
-                className={theme === 'first' ? s.viewBtn : s.viewBtnSecond}
+                className={cardStyles.viewBtnClass(theme)}
                 onClick={() => handleDetailedPageClick(id)}
             >
                 View more

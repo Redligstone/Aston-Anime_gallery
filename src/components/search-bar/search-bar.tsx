@@ -5,6 +5,7 @@ import {search} from '../../redux/actions/search';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
 import {fetchData} from '../../services/fetch-data';
 import {ThemeContext} from '../../services/theme/theme-provider';
+import {searchBarClasses} from '../../services/theme/theme-classes/search-bar-classes';
 
 import s from './search-bar.module.css';
 
@@ -49,15 +50,12 @@ function SearchBar() {
                     type="search"
                     defaultValue={currentQuery}
                     ref={inputRef}
-                    className={theme === 'first' ? s.input : s.inputSecond}
+                    className={searchBarClasses.inputClass(theme)}
                     placeholder="Search..."
                     name="search"
                     autoComplete="off"
                 />
-                <button
-                    type="submit"
-                    className={theme === 'first' ? s.searchButton : s.searchButtonSecond}
-                >
+                <button type="submit" className={searchBarClasses.buttonClass(theme)}>
                     Search
                 </button>
             </form>

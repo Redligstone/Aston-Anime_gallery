@@ -7,6 +7,7 @@ import {AppRoute} from '../../routing/app-route';
 import {localStorageUtil} from '../../utils/local-storage';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {Button} from '../button/button';
+import {headerClasses} from '../../services/theme/theme-classes/header-classes';
 
 import s from './header.module.css';
 
@@ -15,6 +16,7 @@ function Header() {
     const userName = useSelector(getUserNameSelector);
     const dispatch = useDispatch();
     const {theme, toggleTheme} = useContext(ThemeContext);
+    const btnClass = headerClasses.btnClass(theme);
 
     const handleLogoutClick = () => {
         localStorageUtil.setAuth('');
@@ -23,13 +25,11 @@ function Header() {
     };
 
     return (
-        <div className={theme === 'first' ? s.headerFirst : s.headerSecond}>
+        <div className={headerClasses.headerClass(theme)}>
             <div className={s.container}>
-                <Link to="/" className={theme === 'first' ? s.logo : s.logoSecond}>
+                <Link to="/" className={headerClasses.logoClass(theme)}>
                     <span className={s.logoText}>Anime</span>
-                    <span className={theme === 'first' ? s.logoAccent : s.logoAccentSecond}>
-                        Gallery
-                    </span>
+                    <span className={headerClasses.logoAccentClass(theme)}>Gallery</span>
                 </Link>
 
                 {authStatus ? (
@@ -37,33 +37,25 @@ function Header() {
                         <div>
                             <Link
                                 to={AppRoute.Empty}
-                                className={`${s.btn} ${theme === 'first' ? s.user : s.userSecond}`}
+                                className={`${s.btn} ${headerClasses.userClass(theme)}`}
                             >
                                 {userName}
                             </Link>
-                            <Link
-                                to={AppRoute.Favorites}
-                                className={theme === 'first' ? s.btn : s.btnSecond}
-                            >
+                            <Link to={AppRoute.Favorites} className={btnClass}>
                                 Favorites
                             </Link>
-                            <Link
-                                to={AppRoute.History}
-                                className={theme === 'first' ? s.btn : s.btnSecond}
-                            >
+                            <Link to={AppRoute.History} className={btnClass}>
                                 History
                             </Link>
                             <Link
                                 to={AppRoute.LogIn}
                                 onClick={handleLogoutClick}
-                                className={theme === 'first' ? s.btn : s.btnSecond}
+                                className={btnClass}
                             >
                                 Log out
                             </Link>
                             <Button
-                                classValue={
-                                    theme === 'first' ? 'theme-button-first' : 'theme-button-second'
-                                }
+                                classValue={headerClasses.themeButtonClass(theme)}
                                 onClick={toggleTheme}
                             >
                                 Theme

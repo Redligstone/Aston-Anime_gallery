@@ -5,6 +5,7 @@ import {getFavorites} from '../../redux/slices/favorites-slice';
 import {Button} from '../../components/button/button';
 import {CardList} from '../../components/card-list/card-list';
 import {ThemeContext} from '../../services/theme/theme-provider';
+import {favoritesClasses} from '../../services/theme/theme-classes/favorites-classes';
 
 import s from './favorites.module.css';
 
@@ -26,13 +27,13 @@ function Favorites() {
                     </div>
                 </div>
             ) : (
-                <div className={theme === 'first' ? s.emptyFavorites : s.emptyFavoritesSecond}>
+                <div className={favoritesClasses.emptyFavoritesClass(theme)}>
                     Favorites are empty
                 </div>
             )}
             <Button
                 onClick={backButtonHandler}
-                classValue={theme === 'first' ? 'default-button' : 'default-button-second'}
+                classValue={favoritesClasses.backButtonClass(theme)}
             >
                 ← Back
             </Button>
