@@ -1,9 +1,7 @@
 import {ChangeEvent, FormEvent, useState} from 'react';
 import {useDispatch} from 'react-redux';
-
 import {useNavigate} from 'react-router';
-import {AppRoute} from '../../routing/app-route';
-import {logIn} from '../../redux/slices/auth-slice';
+import {handleSignUp} from '../../services/registration-auth';
 
 import s from './sign-up.module.css';
 
@@ -24,15 +22,13 @@ function SignUp() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        navigate(AppRoute.Empty);
 
-        const userInfo = {
-            userName,
-            password,
-            history: [],
-        };
-        console.log(userInfo);
-        dispatch(logIn(userInfo));
+        const userInfo = {userName, password};
+        const signUpSuccess = handleSignUp({navigate, dispatch}, userInfo);
+
+        if (!signUpSuccess) {
+            alert('User with this name alredy exists');
+        }
     };
 
     return (

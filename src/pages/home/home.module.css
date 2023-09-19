@@ -4,3 +4,7 @@
 .container {
     height: calc(100vh - 100px);
 }
+.title {
+    color: whitesmoke;
+    font-size: 24px;
+}

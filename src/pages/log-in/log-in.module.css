@@ -3,18 +3,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 200px;
-    height: calc(100vh - 120px);
+    margin-top: -40px;
+    height: calc(100vh - 140px);
 }
 .title {
     font-size: 34px;
     letter-spacing: 1px;
+    color: whitesmoke;
 }
 .container {
-    background-color: #fff;
+    background-color: whitesmoke;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
+    padding: 60px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
@@ -23,18 +24,23 @@
 .inputContainer {
     margin-bottom: 20px;
 }
-
+label {
+    color: #407099;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
 .inputField {
     margin-top: 5px;
     width: 90%;
-    padding: 10px;
+    padding: 20px;
+    font-size: 22px;
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: border-color 0.2s;
 }
 
 .inputField:focus {
-    border-color: #007bff;
+    border-color: #407099;
 }
 
 /* Error styles */
@@ -45,16 +51,17 @@
 
 /* Button styles */
 .btn {
-    background-color: #007bff;
+    background-color: #407099;
     color: #fff;
     border: none;
     border-radius: 4px;
-    padding: 10px 20px;
+    padding: 15px 26px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 20px;
     transition: background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Hover color */
+    background-color: #558ab8; /* Hover color */
 }

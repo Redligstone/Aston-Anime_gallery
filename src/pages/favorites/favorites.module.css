@@ -1,0 +1,8 @@
+.customButton:hover {
+    background-color: #0d6fd8;
+}
+
+.emptyFavorites {
+    color: whitesmoke;
+    font-size: 30px;
+}

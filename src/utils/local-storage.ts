@@ -1,6 +1,6 @@
 import {User} from '../types/user';
 import {HistoryRecord} from '../types/history-record';
-// import {AnimeWithId} from '../types/anime-data';
+import {AnimeWithId} from '../types/anime-data';
 
 export const localStorageUtil = {
     getUser: (key: string): User | null => {
@@ -26,5 +26,28 @@ export const localStorageUtil = {
     getSearchHistory: (key: string): HistoryRecord[] => {
         const historyString = localStorage.getItem(key);
         return historyString ? JSON.parse(historyString).history : [];
+    },
+    addFavorite: (key: string, card: AnimeWithId) => {
+        const userData = localStorage.getItem(key);
+        if (userData) {
+            const parsedUserData = JSON.parse(userData);
+            localStorage.setItem(
+                key,
+                JSON.stringify({...parsedUserData, favorites: [...parsedUserData.favorites, card]})
+            );
+        }
+    },
+    deleteFavorite: (key: string, id: string) => {
+        const userData = localStorage.getItem(key);
+        if (userData) {
+            const parsedUserData = JSON.parse(userData);
+            const updatedFavorites = parsedUserData.favorites.filter(
+                (item: AnimeWithId) => item.id !== id
+            );
+            localStorage.setItem(
+                key,
+                JSON.stringify({...parsedUserData, favorites: updatedFavorites})
+            );
+        }
     },
 };

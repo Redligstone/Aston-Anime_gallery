@@ -9,7 +9,7 @@ function SearchResult() {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query');
     const {data} = useGetCardsQuery({search: query, size: '100'});
-
+    console.log(data);
     const cardListRender = () => (data ? <CardList cards={data} /> : <Loader />);
 
     const renderContent = () => {
@@ -23,7 +23,11 @@ function SearchResult() {
         }
 
         if (data && !data.length) {
-            return <h4 className={s.title}>No matching anime...</h4>;
+            return (
+                <div className={s.noWrapper}>
+                    <h4 className={s.title}>No matching anime...</h4>
+                </div>
+            );
         }
 
         return (

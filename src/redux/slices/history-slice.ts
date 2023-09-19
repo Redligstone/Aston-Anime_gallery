@@ -15,7 +15,7 @@ export const history = createSlice({
     initialState,
     reducers: {
         updateHistory: (state, action: PayloadAction<HistoryRecord>) => {
-            state.history = [action.payload, ...state.history];
+            state.history.unshift(action.payload);
         },
         setHistory: (state, action) => {
             state.history = action.payload;

@@ -1,0 +1,49 @@
+.btn {
+    background-color: black;
+}
+
+.default-button {
+    background-color: #407099;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+    border-radius: 5px;
+    margin: 50px 0;
+    transition: background-color 0.3s;
+}
+
+.view-default-button {
+    background-color: #407099;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.view-default-button:hover {
+    background-color: #558ab8;
+}
+
+.default-button:hover {
+    background-color: #558ab8;
+}
+
+.about-item-default-btn {
+    background-color: #407099;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    width: 150px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.about-item-default-btn:hover {
+    background-color: #558ab8;
+}

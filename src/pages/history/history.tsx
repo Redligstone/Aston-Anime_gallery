@@ -55,7 +55,7 @@ function History() {
                                 <td>{queryResultNumber}</td>
                                 <td>
                                     <Button
-                                        className={s.viewButton}
+                                        classValue="view-default-button"
                                         onClick={() => handleClick(queryResultLink)}
                                     >
                                         View
@@ -66,7 +66,7 @@ function History() {
                     })}
                 </tbody>
             </table>
-            <Button onClick={backButtonHandler} className={s.customButton}>
+            <Button onClick={backButtonHandler} classValue="default-button">
                 ← Back
             </Button>
         </div>

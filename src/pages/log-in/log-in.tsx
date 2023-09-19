@@ -1,11 +1,7 @@
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
-import {localStorageUtil} from '../../utils/local-storage';
-import {User} from '../../types/user';
-import {setHistory} from '../../redux/slices/history-slice';
-import {AppRoute} from '../../routing/app-route';
-import {logIn} from '../../redux/slices/auth-slice';
+import {handleLogIn} from '../../services/registration-auth';
 
 import s from './log-in.module.css';
 
@@ -33,23 +29,12 @@ function LogIn() {
         }
     };
 
-    const handleLogIn = (userInfo: User) => {
-        dispatch(logIn(userInfo));
-        dispatch(setHistory(userInfo?.history));
-        navigate(AppRoute.Empty);
-    };
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const userInfo = localStorageUtil.getUser(userName);
-
-        if (!userInfo) {
-            setInvalidLogin(true);
-        } else if (userInfo.password !== password) {
-            setInvalidPassword(true);
-        } else {
-            handleLogIn(userInfo);
-        }
+        const userInfo = {userName, password};
+        const authResult = handleLogIn({navigate, dispatch}, userInfo);
+        setInvalidLogin(authResult.invalidLogin);
+        setInvalidPassword(authResult.invalidPassword);
     };
 
     return (

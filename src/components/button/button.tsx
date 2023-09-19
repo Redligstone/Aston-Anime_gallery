@@ -1,24 +1,23 @@
 import React from 'react';
+import './button.css';
 
 type ButtonProps = {
     onClick?: () => void;
-    size?: string;
-    className?: string;
+    classValue?: string;
     children: React.ReactNode;
 };
 
-function Button({onClick, size, className, children}: ButtonProps) {
+function Button({onClick, classValue, children}: ButtonProps) {
     return (
-        <button className={`btn btn-${size} ${className}`} type="button" onClick={onClick}>
+        <button className={classValue} type="button" onClick={onClick}>
             {children}
         </button>
     );
 }
 
 Button.defaultProps = {
-    size: '',
     onClick: () => {},
-    className: '',
+    classValue: '',
 };
 
 export {Button};
