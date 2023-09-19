@@ -6,7 +6,7 @@ import {AnimeWithId} from '../../types/anime-data';
 import {getAuthStatusSelector} from '../../redux/slices/auth-slice';
 import {FavoriteSvg} from '../favorite-svg/favorite-svg';
 import {ThemeContext} from '../../services/theme/theme-provider';
-import {cardStyles} from '../../services/theme/theme-classes/card-classes';
+import {cardStyles} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './card.module.css';
 

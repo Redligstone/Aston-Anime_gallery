@@ -5,7 +5,7 @@ import {search} from '../../redux/actions/search';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
 import {fetchData} from '../../services/fetch-data';
 import {ThemeContext} from '../../services/theme/theme-provider';
-import {searchBarClasses} from '../../services/theme/theme-classes/search-bar-classes';
+import {searchBarClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './search-bar.module.css';
 

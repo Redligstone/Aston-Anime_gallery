@@ -7,7 +7,7 @@ import {AppRoute} from '../../routing/app-route';
 import {localStorageUtil} from '../../utils/local-storage';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {Button} from '../button/button';
-import {headerClasses} from '../../services/theme/theme-classes/header-classes';
+import {headerClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './header.module.css';
 

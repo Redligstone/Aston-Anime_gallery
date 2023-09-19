@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {handleSignUp} from '../../services/registration-auth';
 import {ThemeContext} from '../../services/theme/theme-provider';
-import {signUpClasses} from '../../services/theme/theme-classes/signup-classes';
+import {signUpClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './sign-up.module.css';
 

@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router';
 import {handleLogIn} from '../../services/registration-auth';
 import {ThemeContext} from '../../services/theme/theme-provider';
-import {logInClasses} from '../../services/theme/theme-classes/login-classes';
+import {logInClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './log-in.module.css';
 

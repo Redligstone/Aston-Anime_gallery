@@ -5,7 +5,7 @@ import {getFavorites} from '../../redux/slices/favorites-slice';
 import {Button} from '../../components/button/button';
 import {CardList} from '../../components/card-list/card-list';
 import {ThemeContext} from '../../services/theme/theme-provider';
-import {favoritesClasses} from '../../services/theme/theme-classes/favorites-classes';
+import {favoritesClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './favorites.module.css';
 

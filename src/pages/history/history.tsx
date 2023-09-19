@@ -7,7 +7,7 @@ import {HistoryRecord, HistoryRecordWithId} from '../../types/history-record';
 import {Button} from '../../components/button/button';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
-import {historyClasses} from '../../services/theme/theme-classes/history-classes';
+import {historyClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './history.module.css';
 
