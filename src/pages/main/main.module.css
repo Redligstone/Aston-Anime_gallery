@@ -5,3 +5,11 @@
     background-color: #8b789b;
     padding: 10px 40px 0 40px;
 }
+
+.wrapperSecond {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px);
+    background-color: #f0ebd2;
+    padding: 10px 40px 0 40px;
+}

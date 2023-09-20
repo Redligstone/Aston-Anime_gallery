@@ -1,8 +1,23 @@
+.container {
+    height: calc(100vh - 130px);
+    overflow-y: scroll;
+}
+.container::-webkit-scrollbar {
+    width: 0.5rem;
+}
+.container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 .customButton:hover {
     background-color: #0d6fd8;
 }
 
 .emptyFavorites {
     color: whitesmoke;
+    font-size: 30px;
+}
+.emptyFavoritesSecond {
+    color: #055551;
     font-size: 30px;
 }

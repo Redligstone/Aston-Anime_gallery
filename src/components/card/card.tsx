@@ -1,9 +1,12 @@
 import {useNavigate} from 'react-router';
+import {useContext} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addFavorite, deleteFavorite} from '../../redux/slices/favorites-slice';
 import {AnimeWithId} from '../../types/anime-data';
 import {getAuthStatusSelector} from '../../redux/slices/auth-slice';
 import {FavoriteSvg} from '../favorite-svg/favorite-svg';
+import {ThemeContext} from '../../services/theme/theme-provider';
+import {cardStyles} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './card.module.css';
 
@@ -16,6 +19,7 @@ function Card({data, isFavorite}: CardProps) {
     const {id, title, image, ranking, episodes} = data;
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {theme} = useContext(ThemeContext);
 
     const authStatus = useSelector(getAuthStatusSelector);
 
@@ -51,14 +55,18 @@ function Card({data, isFavorite}: CardProps) {
                     <div className={s.cardHeader}>
                         <div className={s.ranking}>
                             <span className={s.rankingStar}>★</span>
-                            <span className={s.rankingText}>{ranking}</span>
+                            <span className={cardStyles.rankingTextClass(theme)}>{ranking}</span>
                         </div>
                         <div className={s.episodes}>{episodes} episodes</div>
                     </div>
-                    <h2 className={s.title}>{title}</h2>
+                    <h2 className={cardStyles.titleClass(theme)}>{title}</h2>
                 </div>
             </div>
-            <button type="button" className={s.viewBtn} onClick={() => handleDetailedPageClick(id)}>
+            <button
+                type="button"
+                className={cardStyles.viewBtnClass(theme)}
+                onClick={() => handleDetailedPageClick(id)}
+            >
                 View more
             </button>
         </article>

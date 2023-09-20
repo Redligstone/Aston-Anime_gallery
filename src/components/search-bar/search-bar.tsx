@@ -1,14 +1,17 @@
-import React, {useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import {useLocation, useNavigate} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
 import {search} from '../../redux/actions/search';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
 import {fetchData} from '../../services/fetch-data';
+import {ThemeContext} from '../../services/theme/theme-provider';
+import {searchBarClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './search-bar.module.css';
 
 function SearchBar() {
     const user = useSelector(getUserNameSelector);
+    const {theme} = useContext(ThemeContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -47,12 +50,12 @@ function SearchBar() {
                     type="search"
                     defaultValue={currentQuery}
                     ref={inputRef}
-                    className={s.input}
+                    className={searchBarClasses.inputClass(theme)}
                     placeholder="Search..."
                     name="search"
                     autoComplete="off"
                 />
-                <button type="submit" className={s.searchButton}>
+                <button type="submit" className={searchBarClasses.buttonClass(theme)}>
                     Search
                 </button>
             </form>

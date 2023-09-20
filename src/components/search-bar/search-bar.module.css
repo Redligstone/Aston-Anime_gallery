@@ -25,6 +25,26 @@
     color: #999;
 }
 
+.inputSecond {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputSecond:focus {
+    border-color: #055551;
+    box-shadow: 0 0 5px #055551;
+}
+
+.inputSecond::placeholder {
+    color: #999;
+}
+
 .searchButton {
     background-color: #407099;
     color: #fff;
@@ -37,4 +57,18 @@
 }
 .searchButton:hover {
     background-color: #4e7da5;
+}
+
+.searchButtonSecond {
+    background-color: #77aaac;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.searchButtonSecond:hover {
+    background-color: #9ec5c6;
 }

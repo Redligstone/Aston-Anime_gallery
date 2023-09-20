@@ -1,14 +1,17 @@
 import {useNavigate} from 'react-router-dom';
+import {useContext} from 'react';
 import {useSelector} from 'react-redux';
 import {getFavorites} from '../../redux/slices/favorites-slice';
 import {Button} from '../../components/button/button';
 import {CardList} from '../../components/card-list/card-list';
+import {ThemeContext} from '../../services/theme/theme-provider';
+import {favoritesClasses} from '../../services/theme/theme-classes/theme-classes';
 
 import s from './favorites.module.css';
 
 function Favorites() {
     const navigate = useNavigate();
-
+    const {theme} = useContext(ThemeContext);
     const favorites = useSelector(getFavorites);
 
     const backButtonHandler = () => {
@@ -24,9 +27,14 @@ function Favorites() {
                     </div>
                 </div>
             ) : (
-                <div className={s.emptyFavorites}>Favorites are empty</div>
+                <div className={favoritesClasses.emptyFavoritesClass(theme)}>
+                    Favorites are empty
+                </div>
             )}
-            <Button onClick={backButtonHandler} classValue="default-button">
+            <Button
+                onClick={backButtonHandler}
+                classValue={favoritesClasses.backButtonClass(theme)}
+            >
                 ← Back
             </Button>
         </div>
