@@ -5,6 +5,8 @@ import {AppRoute} from '../../routing/app-route';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {PrivateOutlet} from '../../routing/private-outlet';
 import {Loader} from '../../components/loader/loader';
+import {ErrorBoundary} from '../../services/error-boundary';
+import {ErrorPage} from '../error/error';
 import {
     AboutItemPage,
     FavoritesPage,
@@ -25,23 +27,26 @@ function Main() {
             <>
                 <Header />
                 <div className={theme === 'first' ? s.wrapper : s.wrapperSecond}>
-                    <Suspense fallback={<Loader />}>
-                        <Routes>
-                            <Route path={AppRoute.Empty} element={<HomePage />} />
-                            <Route path={AppRoute.Search} element={<SearchPage />} />
-                            <Route path={AppRoute.AboutItem} element={<AboutItemPage />} />
-                            <Route path={AppRoute.SignUp} element={<SignUpPage />} />
-                            <Route path={AppRoute.LogIn} element={<LogInPage />} />
+                    <ErrorBoundary>
+                        <Suspense fallback={<Loader />}>
+                            <Routes>
+                                <Route path={AppRoute.Empty} element={<HomePage />} />
+                                <Route path={AppRoute.Search} element={<SearchPage />} />
+                                <Route path={AppRoute.AboutItem} element={<AboutItemPage />} />
+                                <Route path={AppRoute.SignUp} element={<SignUpPage />} />
+                                <Route path={AppRoute.LogIn} element={<LogInPage />} />
+                                <Route path={AppRoute.Error} element={<ErrorPage />} />
 
-                            <Route path={AppRoute.History} element={<PrivateOutlet />}>
-                                <Route index element={<HistoryPage />} />
-                            </Route>
+                                <Route path={AppRoute.History} element={<PrivateOutlet />}>
+                                    <Route index element={<HistoryPage />} />
+                                </Route>
 
-                            <Route path={AppRoute.Favorites} element={<PrivateOutlet />}>
-                                <Route index element={<FavoritesPage />} />
-                            </Route>
-                        </Routes>
-                    </Suspense>
+                                <Route path={AppRoute.Favorites} element={<PrivateOutlet />}>
+                                    <Route index element={<FavoritesPage />} />
+                                </Route>
+                            </Routes>
+                        </Suspense>
+                    </ErrorBoundary>
                 </div>
             </>
         </BrowserRouter>

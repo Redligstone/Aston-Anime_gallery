@@ -25,15 +25,12 @@ function SearchBar() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const query = (event.target as HTMLFormElement).search.value;
-        console.log(query);
 
         try {
             const response = await fetchData(query);
-            console.log(response);
 
             if (response.data && query !== '') {
                 const queryResult = response.data;
-                console.log(queryResult, query);
                 dispatch(search({user, query, queryResult}));
             }
         } catch (error) {

@@ -1,4 +1,5 @@
 import {useNavigate} from 'react-router';
+import PropTypes from 'prop-types';
 import {useContext} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {addFavorite, deleteFavorite} from '../../redux/slices/favorites-slice';
@@ -72,5 +73,19 @@ function Card({data, isFavorite}: CardProps) {
         </article>
     );
 }
+
+Card.defaultProps = {
+    data: null,
+};
+
+Card.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        ranking: PropTypes.number.isRequired,
+        episodes: PropTypes.number.isRequired,
+    }),
+};
 
 export {Card};
