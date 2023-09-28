@@ -11,14 +11,14 @@
 ### React
 
 -   Проект написан с использованием функциональных компонентов в приоритете над классовыми ☑️
--   Есть разделение на умные и глупые компоненты ☑️ Пример [**глупого**]() и [**умного**]() компонента
+-   Есть разделение на умные и глупые компоненты ☑️ Пример [**глупого**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/components/button/button.tsx#L10) и [**умного**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/components/search-bar/search-bar.tsx#L12C1-L12C1) компонента
 -   Есть рендеринг списков ☑️ [**Пример**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/components/card-list/card-list.tsx#L17), [**Пример с UUID**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/pages/history/history.tsx#L49C21-L49C21)
 -   Реализована хотя бы одна форма ☑️ [**Форма авторизации**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/pages/log-in/log-in.tsx#L46)
 -   Есть применение Контекст API ☑️ [**Контекст**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/services/theme/theme-provider.tsx#L7)
 -   Есть применение предохранителя ☑️ [**Использование предохранителя**]()
 -   Есть хотя бы один кастомный хук ☑️ [**Хук**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/hooks/use-data-fetching.ts#L22)
 -   Хотя бы несколько компонентов используют PropTypes ☑️ [**Пример использования**]()
--   Есть применение lazy + Suspense ☑️ [**Lazy**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/routing/lazy.tsx#L7) [**Suspense**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/pages/main/main.tsx#L28)
+-   Есть применение lazy + Suspense ☑️ [**Lazy**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/routing/lazy.tsx#L7), [**Suspense**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/pages/main/main.tsx#L28)
 
 ### Redux
 
