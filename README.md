@@ -4,6 +4,11 @@
 
 Реализовано: Марениным Г.А.
 
+## Команды
+
+-   установка пакетов - `npm install`
+-   запуск ceрвера - `npm start`
+
 ## Учтенные требования к проекту
 
 -   Для хранения учетных записей пользователей, их избранного и истории поиска, используем LocalStorage ☑️ [**LocalStorage**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/utils/local-storage.ts#L5)
@@ -17,8 +22,9 @@
 -   Есть применение Контекст API ☑️ [**Контекст**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/services/theme/theme-provider.tsx#L7)
 -   Есть применение предохранителя ☑️ [**Использование предохранителя**]()
 -   Есть хотя бы один кастомный хук ☑️ [**Хук**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/hooks/use-data-fetching.ts#L22)
--   Хотя бы несколько компонентов используют PropTypes ☑️ [**Пример использования**]()
+-   Хотя бы несколько компонентов используют PropTypes ☑️ [**Пример использования**](https://github.com/Redligstone/Aston-Anime_gallery/blob/c4ce06801aac986220db9455f642ad0493f7bc47/src/components/card/card.tsx#L81)
 -   Есть применение lazy + Suspense ☑️ [**Lazy**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/routing/lazy.tsx#L7), [**Suspense**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/pages/main/main.tsx#L28)
+-   Поиск не должен триггерить много запросов к серверу ☑️ [**Использование debounce**](https://github.com/Redligstone/Aston-Anime_gallery/blob/cdaf58014f01d0ac38990b0e9ddf4f6cf68fa6a1/src/components/search-bar/search-bar.tsx#L27)
 
 ### Redux
 
