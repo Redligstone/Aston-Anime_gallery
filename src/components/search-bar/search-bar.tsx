@@ -1,11 +1,13 @@
 import React, {useContext, useRef} from 'react';
 import {useLocation, useNavigate} from 'react-router';
 import {useDispatch, useSelector} from 'react-redux';
+import {debounce} from 'lodash';
 import {search} from '../../redux/actions/search';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
 import {fetchData} from '../../services/fetch-data';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {searchBarClasses} from '../../services/theme/theme-classes/theme-classes';
+import {FormEventWithSearch} from '../../types/search';
 
 import s from './search-bar.module.css';
 
@@ -22,18 +24,12 @@ function SearchBar() {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const query = (event.target as HTMLFormElement).search.value;
-        console.log(query);
-
+    const debouncedSubmit = debounce(async (query: string) => {
         try {
             const response = await fetchData(query);
-            console.log(response);
 
             if (response.data && query !== '') {
                 const queryResult = response.data;
-                console.log(queryResult, query);
                 dispatch(search({user, query, queryResult}));
             }
         } catch (error) {
@@ -41,6 +37,13 @@ function SearchBar() {
         }
 
         navigate(`/search?query=${query}`);
+    }, 500);
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const typedEvent = event as FormEventWithSearch;
+        const query = typedEvent.target.search.value;
+        debouncedSubmit(query);
     };
 
     return (

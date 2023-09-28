@@ -1,0 +1,12 @@
+.container {
+    height: calc(100vh - 130px);
+    text-align: center;
+    font-size: 28px;
+}
+
+.title {
+    color: whitesmoke;
+}
+.titleSecond {
+    color: #055551;
+}

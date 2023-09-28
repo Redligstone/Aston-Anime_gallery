@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {getFavorites} from '../../redux/slices/favorites-slice';
 import {AnimeWithId} from '../../types/anime-data';
@@ -21,4 +22,21 @@ function CardList({cards}: CardListProps) {
 
     return <ul className={s.wrapper}>{cardList}</ul>;
 }
+
+CardList.defaultProps = {
+    cards: null,
+};
+
+CardList.propTypes = {
+    cards: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            image: PropTypes.string.isRequired,
+            ranking: PropTypes.number.isRequired,
+            episodes: PropTypes.number.isRequired,
+        })
+    ),
+};
+
 export {CardList};
