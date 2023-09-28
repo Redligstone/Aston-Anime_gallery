@@ -45,7 +45,7 @@ function SearchResult() {
     return (
         <div>
             <SearchBar />
-            <div className={s.card_container}>{renderContent()}</div>
+            <div className={s.cardContainer}>{renderContent()}</div>
         </div>
     );
 }

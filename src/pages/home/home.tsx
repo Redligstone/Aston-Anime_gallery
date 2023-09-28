@@ -14,7 +14,7 @@ function Home() {
         <div className={s.container}>
             <SearchBar />
             {data ? (
-                <div className={s.card_container}>
+                <div className={s.cardContainer}>
                     <h4 className={theme === 'first' ? s.title : s.titleSecond}>Top 5 rated:</h4>
                     <CardList cards={data} />
                 </div>
