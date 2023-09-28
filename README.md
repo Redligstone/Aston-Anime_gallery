@@ -23,7 +23,7 @@
 ### Redux
 
 -   Используется Modern Redux with Redux Toolkit ☑️
--   Используются слайсы ☑️ [**Auth**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/slices/auth-slice.ts#L15) [**Favorites**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/slices/favorites-slice.ts#L14) [**History**]()
+-   Используются слайсы ☑️ [**Auth**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/slices/auth-slice.ts#L15), [**Favorites**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/slices/favorites-slice.ts#L14), [**History**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/slices/history-slice.ts#L13)
 -   Есть кастомная мидлвара ☑️ [**Мидлвара**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/redux/middleware/users-state-sync-middleware.ts#L10)
 -   Используется RTK Query ☑️ [**RTK Query**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/api/cards-api.ts#L32)
 -   Используется Transforming Responses ☑️ [**Transforming Responses**](https://github.com/Redligstone/Aston-Anime_gallery/blob/7993efa457dcedd1be6b84fc95ab6af20b6a55b3/src/api/cards-api.ts#L45)
