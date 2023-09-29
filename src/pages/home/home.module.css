@@ -19,3 +19,18 @@
     flex-direction: column;
     align-items: center;
 }
+
+.description {
+    color: whitesmoke;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    padding: 5px 0;
+}
+.descriptionSecond {
+    color: #055551;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    padding: 5px 0;
+}

@@ -10,11 +10,12 @@ type OptionsType = {
         'X-RapidAPI-Host': string;
     };
 };
+const apiKey = process.env.REACT_APP_EHB_ACCESS_KEY || 'default_api_key';
 
 const options: OptionsType = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '49fcafd200msh89fd2520eebf945p118f59jsnb088872a2a85',
+        'X-RapidAPI-Key': apiKey,
         'X-RapidAPI-Host': 'anime-db.p.rapidapi.com',
     },
 };

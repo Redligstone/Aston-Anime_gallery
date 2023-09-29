@@ -12,6 +12,10 @@ function Home() {
 
     return (
         <div className={s.container}>
+            <div className={theme === 'first' ? s.description : s.descriptionSecond}>
+                Explore top anime titles and characters in our gallery. Start your search with names
+                of your favorite titles, <b>e.g. naruto, fullmetal, one piece, etc.</b>
+            </div>
             <SearchBar />
             {data ? (
                 <div className={s.cardContainer}>

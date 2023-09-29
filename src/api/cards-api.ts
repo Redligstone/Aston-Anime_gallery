@@ -8,7 +8,7 @@ import {errorHandle} from '../services/error-handler';
 const BASE_URL = 'https://anime-db.p.rapidapi.com/';
 const LIST_URL = 'anime';
 const HEADERS = {
-    'X-RapidAPI-Key': '49fcafd200msh89fd2520eebf945p118f59jsnb088872a2a85',
+    'X-RapidAPI-Key': process.env.REACT_APP_EHB_ACCESS_KEY,
     'X-RapidAPI-Host': 'anime-db.p.rapidapi.com',
 };
 
