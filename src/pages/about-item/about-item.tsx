@@ -7,7 +7,6 @@ import {Loader} from '../../components/loader/loader';
 import {Button} from '../../components/button/button';
 import {FavoriteSvg} from '../../components/favorite-svg/favorite-svg';
 import {addFavorite, deleteFavorite, getFavorites} from '../../redux/slices/favorites-slice';
-import {AppRoute} from '../../routing/app-route';
 
 import s from './about-item.module.css';
 
@@ -47,8 +46,6 @@ function AboutItem() {
     useEffect(() => {
         if (anime) {
             setIsFavorite(!!favorites.find((item) => item.id === params.id));
-        } else {
-            navigate(AppRoute.Error);
         }
     }, [anime, params.id, favorites, navigate]);
 

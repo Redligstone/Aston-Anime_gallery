@@ -1,7 +1,7 @@
 export const fetchDataRequest = async (searchQuery: string) => {
     const baseUrl = 'https://anime-db.p.rapidapi.com/';
     const endpoint = 'anime';
-    const apiKey = '49fcafd200msh89fd2520eebf945p118f59jsnb088872a2a85';
+    const apiKey = 'd9b35c9d9emsh2205894a8839181p1bc4bbjsn0036305027ab';
 
     const queryParams = new URLSearchParams({
         page: '1',

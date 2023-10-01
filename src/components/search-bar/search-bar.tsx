@@ -37,6 +37,8 @@ function SearchBar() {
         if (inputRef.current?.value) {
             const response = await fetchData({search: inputRef.current?.value, size: '5'});
             setSuggests(response.data || null);
+        } else {
+            setSuggests(null);
         }
     }, 700);
 
