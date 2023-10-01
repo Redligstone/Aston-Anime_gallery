@@ -1,0 +1,16 @@
+.dropItem {
+    height: 20px;
+    width: 600px;
+    background-color: rgb(241, 241, 241);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+}
+.dropItem:hover {
+    background-color: antiquewhite;
+}
+.suggstList {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}

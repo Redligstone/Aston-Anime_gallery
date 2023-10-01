@@ -1,12 +1,21 @@
 import {useNavigate, useParams} from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useDataFetching} from '../../hooks/use-data-fetching';
+import {getAuthStatusSelector} from '../../redux/slices/auth-slice';
 import {Loader} from '../../components/loader/loader';
 import {Button} from '../../components/button/button';
+import {FavoriteSvg} from '../../components/favorite-svg/favorite-svg';
+import {addFavorite, deleteFavorite, getFavorites} from '../../redux/slices/favorites-slice';
 
 import s from './about-item.module.css';
 
 function AboutItem() {
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const favorites = useSelector(getFavorites);
+    const authStatus = useSelector(getAuthStatusSelector);
 
     const params = useParams();
 
@@ -16,6 +25,30 @@ function AboutItem() {
         navigate('/');
     };
 
+    const handleLikeClick = (idAnime: string | undefined) => {
+        if (isFavorite) {
+            dispatch(deleteFavorite(idAnime));
+            setIsFavorite(false);
+            return;
+        }
+        dispatch(
+            addFavorite({
+                id: idAnime,
+                title: anime?.title,
+                image: anime?.image,
+                ranking: anime?.ranking,
+                episodes: anime?.episodes,
+            })
+        );
+        setIsFavorite(true);
+    };
+
+    useEffect(() => {
+        if (anime) {
+            setIsFavorite(!!favorites.find((item) => item.id === params.id));
+        }
+    }, [anime, params.id, favorites, navigate]);
+
     return (
         <div className={s.wrapper}>
             {anime ? (
@@ -23,6 +56,17 @@ function AboutItem() {
                     <h2 className={s.title}>{anime.title}</h2>
                     <div className={s.description}>
                         <div className={s.imgBlock}>
+                            {authStatus ? (
+                                <button
+                                    className={`${s.favoriteButton} ${
+                                        isFavorite ? s.favorite : ''
+                                    }`}
+                                    type="button"
+                                    onClick={() => handleLikeClick(params.id)}
+                                >
+                                    <FavoriteSvg color={isFavorite ? 'red' : 'grey'} />
+                                </button>
+                            ) : null}
                             <img src={anime.image} alt="" />
                         </div>
                     </div>

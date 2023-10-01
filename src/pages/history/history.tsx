@@ -1,9 +1,8 @@
 import {useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {useContext} from 'react';
-import {v4 as uuidv4} from 'uuid';
 import {localStorageUtil} from '../../utils/local-storage';
-import {HistoryRecord, HistoryRecordWithId} from '../../types/history-record';
+import {HistoryRecord} from '../../types/history-record';
 import {Button} from '../../components/button/button';
 import {ThemeContext} from '../../services/theme/theme-provider';
 import {getUserNameSelector} from '../../redux/slices/auth-slice';
@@ -17,13 +16,6 @@ function History() {
 
     const user = useSelector(getUserNameSelector) || '';
     const searchHistory = localStorageUtil.getSearchHistory(user);
-
-    const searchHistoryWithId = searchHistory.map(
-        (historyRecord: HistoryRecord): HistoryRecordWithId => ({
-            id: uuidv4(),
-            ...historyRecord,
-        })
-    );
 
     const backButtonHandler = () => {
         navigate('/');
@@ -46,7 +38,7 @@ function History() {
                     </tr>
                 </thead>
                 <tbody>
-                    {searchHistoryWithId.map((historyRecord: HistoryRecordWithId) => {
+                    {searchHistory.map((historyRecord: HistoryRecord) => {
                         const {id, query, timestamp, queryResultNumber, queryResultLink} =
                             historyRecord;
                         return (

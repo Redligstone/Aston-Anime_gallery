@@ -1,4 +1,5 @@
 import {createListenerMiddleware} from '@reduxjs/toolkit';
+import {v4 as uuidv4} from 'uuid';
 import {logIn} from '../slices/auth-slice';
 import {localStorageUtil} from '../../utils/local-storage';
 import {init} from '../actions/init';
@@ -41,6 +42,7 @@ userStateSyncMiddleware.startListening({
             const currentHistory = localStorageUtil.getSearchHistory(user);
 
             const historyRecord: HistoryRecord = {
+                id: uuidv4(),
                 query,
                 timestamp: new Date().toLocaleString(),
                 queryResultNumber: queryResult?.length || 0,
