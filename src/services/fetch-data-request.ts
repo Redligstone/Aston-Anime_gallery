@@ -1,4 +1,4 @@
-export const fetchData = async (searchQuery: string) => {
+export const fetchDataRequest = async (searchQuery: string) => {
     const baseUrl = 'https://anime-db.p.rapidapi.com/';
     const endpoint = 'anime';
     const apiKey = '49fcafd200msh89fd2520eebf945p118f59jsnb088872a2a85';
@@ -24,13 +24,9 @@ export const fetchData = async (searchQuery: string) => {
 
     try {
         const response = await fetch(url, options);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
 
         const result = await response.json();
-        console.log(result);
-        return result; //
+        return result;
     } catch (error) {
         console.error(error);
         throw error;
